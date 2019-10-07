@@ -116,6 +116,8 @@ public class DiscordChatListener extends ListenerAdapter {
     // block bots
     if (DiscordSRV.config().getBoolean("DiscordChatChannelBlockBots") && event.getAuthor().isBot()
         && !(event.getAuthor().getDiscriminator().equals("0000"))) {
+      // debug
+      DiscordSRV.debug("debug: tag = " + event.getAuthor().getDiscriminator());
       DiscordSRV.debug("Received Discord message from bot " + event.getAuthor()
           + " but DiscordChatChannelBlockBots is on");
       return;
